@@ -1,7 +1,7 @@
 package com.indianparadises.imagesservice.repositories;
 
-import com.indianparadises.imagesservice.entities.AboutSection;
-import com.indianparadises.imagesservice.entities.HomeCarousel;
+import com.indianparadises.imagesservice.entities.AboutSectionImage;
+import com.indianparadises.imagesservice.entities.HomeCarouselImage;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,20 +15,16 @@ public class HomeRepository {
     @Autowired
     private EntityManager em;
 
-    public HomeCarousel fetchHomeCarouselImage(Long imageId) {
-        return em.find(HomeCarousel.class, imageId);
-    }
-
-    public List<HomeCarousel> fetchAllHomeCarouselImages() {
-        String jpql = "select h from HomeCarousel h";
-        TypedQuery<HomeCarousel> query = em.createQuery(jpql, HomeCarousel.class);
+    public List<HomeCarouselImage> fetchHomeCarouselImages() {
+        String jpql = "select h from HomeCarouselImage h";
+        TypedQuery<HomeCarouselImage> query = em.createQuery(jpql, HomeCarouselImage.class);
         return query.getResultList();
     }
 
-    public AboutSection fetchAboutSectionDetails() {
-        String jpql = "select a from AboutSection a order by random() limit 1";
-        TypedQuery<AboutSection> query = em.createQuery(jpql, AboutSection.class);
-        AboutSection aboutSection = query.getResultList().stream().findFirst().orElse(null);
+    public AboutSectionImage fetchAboutSectionImage() {
+        String jpql = "select a from AboutSectionImage a";
+        TypedQuery<AboutSectionImage> query = em.createQuery(jpql, AboutSectionImage.class);
+        AboutSectionImage aboutSection = query.getResultList().stream().findFirst().orElse(null);
         return aboutSection;
     }
 

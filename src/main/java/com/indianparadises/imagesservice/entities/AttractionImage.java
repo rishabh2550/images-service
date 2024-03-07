@@ -1,22 +1,22 @@
 package com.indianparadises.imagesservice.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "city_images")
-@NoArgsConstructor
+@Table(name = "attraction_images")
 @Getter
 @Setter
-public class CityImage {
+@NoArgsConstructor
+public class AttractionImage {
 
-    public CityImage(Long cityId, String imageName, byte[] image, boolean primaryImage) {
-        this.cityId = cityId;
+    public AttractionImage(Long attractionId, String imageName, byte[] image) {
+        this.attractionId = attractionId;
         this.imageName = imageName;
         this.image = image;
-        this.primaryImage = primaryImage;
     }
 
     @Id
@@ -24,7 +24,7 @@ public class CityImage {
     private Long imageId;
 
     @Column(nullable = false)
-    private Long cityId;
+    private Long attractionId;
 
     @Column(nullable = false)
     private String imageName;
@@ -32,8 +32,5 @@ public class CityImage {
     @Lob
     @Column(nullable = false)
     private byte[] image;
-
-    @Column
-    private boolean primaryImage;
 
 }

@@ -1,6 +1,6 @@
 package com.indianparadises.imagesservice.services;
 
-import com.indianparadises.imagesservice.repositories.InsertImageRepository;
+import com.indianparadises.imagesservice.repositories.InsertResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,13 +9,13 @@ import java.io.IOException;
 
 @Service
 @Transactional
-public class InsertImageService {
+public class InsertResourceService {
 
     @Autowired
-    private InsertImageRepository insertImageRepository;
+    private InsertResourceRepository insertResourceRepository;
 
     public void insertANewcityImageFromFile() throws IOException {
-        insertImageRepository.insertANewcityImageFromFile();
+        insertResourceRepository.insertANewcityImageFromFile();
     }
 
 }

@@ -7,7 +7,7 @@ import org.springframework.core.io.ByteArrayResource;
 public class ImageDTOMapper {
 
     public static ImageDTO mapCityImageToImageDTO(CityImage cityImage) {
-        ImageDTO imageDTO = new ImageDTO(cityImage.getImageId(), cityImage.getCityId(), cityImage.getImageName(), cityImage.getImage(), cityImage.isPrimaryImage(), cityImage.getHeader(), cityImage.getDescription());
+        ImageDTO imageDTO = new ImageDTO(cityImage.getImageId(), cityImage.getCityId(), cityImage.getImageName(), cityImage.getImage(), cityImage.isPrimaryImage());
         return imageDTO;
     }
 

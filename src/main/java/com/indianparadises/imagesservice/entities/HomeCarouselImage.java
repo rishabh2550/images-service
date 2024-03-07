@@ -1,36 +1,30 @@
 package com.indianparadises.imagesservice.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.core.io.ByteArrayResource;
 
 @Entity
+@Table(name = "home_carousel_images")
 @NoArgsConstructor
 @Getter
 @Setter
-public class HomeCarousel {
+public class HomeCarouselImage {
 
-    public HomeCarousel(String imageName, byte[] image, String header, String description) {
+    public HomeCarouselImage(String imageName, byte[] image) {
         this.imageName = imageName;
         this.image = image;
-        this.header = header;
-        this.description = description;
     }
 
     @Id
     @GeneratedValue
     private Long imageId;
 
+    @Column(nullable = false)
     private String imageName;
 
     @Lob
     private byte[] image;
-
-    private String header;
-
-    private String description;
 
 }

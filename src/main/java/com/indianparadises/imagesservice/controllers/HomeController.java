@@ -1,7 +1,7 @@
 package com.indianparadises.imagesservice.controllers;
 
-import com.indianparadises.imagesservice.entities.AboutSection;
-import com.indianparadises.imagesservice.entities.HomeCarousel;
+import com.indianparadises.imagesservice.entities.AboutSectionImage;
+import com.indianparadises.imagesservice.entities.HomeCarouselImage;
 import com.indianparadises.imagesservice.services.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,15 +17,15 @@ public class HomeController {
     @Autowired
     private HomeService homeService;
 
-    @GetMapping(path="/fetchAllHomeCarouselImages")
-    public ResponseEntity<List<HomeCarousel>> fetchAllHomeCarouselImages() {
-        List<HomeCarousel> homeCarousel = homeService.fetchAllHomeCarouselImages();
-        return new ResponseEntity<>(homeCarousel, HttpStatus.OK);
+    @GetMapping(path = "/fetchHomeCarouselImages")
+    public ResponseEntity<List<HomeCarouselImage>> fetchHomeCarouselImages() {
+        List<HomeCarouselImage> homeCarouselImages = homeService.fetchHomeCarouselImages();
+        return new ResponseEntity<>(homeCarouselImages, HttpStatus.OK);
     }
 
-    @GetMapping(path="/fetchAboutSectionDetails")
-    public ResponseEntity<AboutSection> fetchAboutSectionDetails() {
-        AboutSection aboutSection = homeService.fetchAboutSectionDetails();
+    @GetMapping(path="/fetchAboutSectionImage")
+    public ResponseEntity<AboutSectionImage> fetchAboutSectionImage() {
+        AboutSectionImage aboutSection = homeService.fetchAboutSectionImage();
         return new ResponseEntity<>(aboutSection, HttpStatus.OK);
     }
 

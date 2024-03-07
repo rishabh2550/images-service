@@ -16,7 +16,5 @@ public class ImageDTO {
     private String imageName;
     private byte[] image;
     private boolean primaryImage;
-    private String header;
-    private String description;
 
 }
